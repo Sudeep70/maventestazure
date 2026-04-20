@@ -12,3 +12,11 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+
+- script: echo "Deployment step executed successfully"
+  displayName: 'Deploy Step'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: 'target'
+    artifactName: 'drop'
